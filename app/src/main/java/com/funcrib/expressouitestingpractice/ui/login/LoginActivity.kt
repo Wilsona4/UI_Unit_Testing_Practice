@@ -25,15 +25,15 @@ class LoginActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             val sex: String = spinner.selectedItem.toString()
 
             if (name.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() || sex.isEmpty()) {
-                Toast.makeText(this, "All Fields are Required!!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "All Fields are Required", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
-            }else if (!validateEmail(email)){
+            } else if (!validateEmail(email)) {
                 Toast.makeText(this, "Invalid Email", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
-            }else if (!validateNumber(phoneNumber)) {
+            } else if (!validateNumber(phoneNumber)) {
                 Toast.makeText(this, "Enter Nigerian Number", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
-            }else {
+            } else {
                 val intent = Intent(this, ProfileActivity::class.java).apply {
                     putExtra("name", name)
                     putExtra("email", email)
